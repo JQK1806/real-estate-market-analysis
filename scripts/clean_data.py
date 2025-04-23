@@ -3,9 +3,38 @@ import numpy as np
 from pathlib import Path
 
 def load_data(file_path):
+    """
+    Load data from a CSV file into a pandas DataFrame.
+    
+    Args:
+        file_path (str): Path to the CSV file to be loaded.
+        
+    Returns:
+        pd.DataFrame: Loaded data as a pandas DataFrame.
+    """
     return pd.read_csv(file_path)
 
 def clean_data(df):
+    """
+    Clean and preprocess the house prices dataset.
+    
+    This function performs the following cleaning steps:
+    1. Handles missing values in numerical and categorical columns
+    2. Converts ordinal categorical variables to numeric using predefined mappings
+    3. Converts binary categorical variables to numeric (0/1)
+    4. Creates dummy variables for remaining categorical variables
+    5. Adds derived features (age and price per square foot)
+    
+    Args:
+        df (pd.DataFrame): Raw input DataFrame containing house prices data.
+        
+    Returns:
+        pd.DataFrame: Cleaned and preprocessed DataFrame ready for modeling.
+        
+    Note:
+        The function assumes the input DataFrame contains columns from the House Prices
+        dataset from Kaggle. It handles specific column names and data types accordingly.
+    """
     print('Cleaning started.')
     df_clean = df.copy()
     
@@ -75,6 +104,17 @@ def clean_data(df):
 
 
 def main():
+    """
+    Main function to execute the data cleaning pipeline.
+    
+    This function:
+    1. Creates the output directory if it doesn't exist
+    2. Loads the raw training data
+    3. Applies cleaning transformations
+    4. Saves the cleaned data to the output directory
+    
+    The cleaned data is saved to 'data/cleaned/data_cleaned.csv'.
+    """
     cleaned_dir = Path('data/cleaned')
     cleaned_dir.mkdir(parents=True, exist_ok=True)
 
