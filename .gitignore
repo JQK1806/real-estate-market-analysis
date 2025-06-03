@@ -28,27 +28,9 @@ htmlcov/
 
 # Virtual Environment
 venv/
-env/
-ENV/
 
-# Data files
-data/raw/*
-data/processed/*
-data/interim/*
-data/external/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-!data/interim/.gitkeep
-!data/external/.gitkeep
 
-# Model files
-models/*.pkl
-models/*.h5
-models/*.joblib
-models/checkpoints/
-!models/.gitkeep
-
-# Jupyter Notebook checkpoints only
+# Jupyter Notebook
 .ipynb_checkpoints/
 */.ipynb_checkpoints/
 
